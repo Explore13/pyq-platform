@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+  <body>
+    <style>
+        body {
+            background-color: yellow;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Make the body full height of the viewport */
+            margin: 0;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .custom-btn {
+            margin: 5px; /* Add space around buttons */
+            width: calc(100% - 10px); /* Calculate button width for 2 buttons in a row with margin */
+            font-size: 24px; /* Increase button font size */
+            background-color: red; /* Set the background color to red */
+            color: white; /* Set the text color to white */
+        }
+    </style>
+    
+    <div class="container">
+        <div class="btn-container">
+            <a href="ask_question.html"><button type="button" class="btn custom-btn btn-lg">2023</button></a>
+            <a href="ask_question.html"><button type="button" class="btn custom-btn btn-lg">2022</button></a>
+            <a href="ask_question.html"><button type="button" class="btn custom-btn btn-lg">2021</button></a>
+            <a href="ask_question.html"><button type="button" class="btn custom-btn btn-lg">2020</button></a>
+            <a href="ask_question.html"><button type="button" class="btn custom-btn btn-lg">2019</button></a>
+            <a href="ask_question.html"><button type="button" class="btn custom-btn btn-lg">2018</button></a>
+            <a href="ask_question.html"><button type="button" class="btn custom-btn btn-lg">2017</button></a>
+            <a href="ask_question.html"><button type="button" class="btn custom-btn btn-lg">2016</button></a>
+            <a href="ask_question.html"><button type="button" class="btn custom-btn btn-lg">2015</button></a>
+            <a href="ask_question.html"><button type="button" class="btn custom-btn btn-lg">2014</button></a>
+            <a href="ask_question.html"><button type="button" class="btn custom-btn btn-lg">2013</button></a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ask_question</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <style>
+        body{
+            background-color: yellow;
+        }
+        .question-container {
+            text-align: center;
+            padding: 20px;
+        }
+        .options {
+            text-align: left;
+        }
+    </style>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 question-container">
+                <p>69. If z_1 and z_2 are two complex numbers satisfying the equation |(z_1+z_2)/(z_1-z_2)|=1, then z_1/z_2 may be <br>
+                    <form id="quizForm">
+                        <label>
+                            <input type="radio" name="answer" value="A"> (A) real positive
+                        </label><br>
+                        <label>
+                            <input type="radio" name="answer" value="B"> (B) real negative
+                        </label><br>
+                        <label>
+                            <input type="radio" name="answer" value="C"> (C) zero
+                        </label><br>
+                        <label>
+                            <input type="radio" name="answer" value="D"> (D) purely imaginary
+                        </label>
+                    </form>
+                </p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-12 text-center">
+                <button id="startButton" onclick="startCountdown()" type="button" class="btn btn-danger">Take test</button>
+                <button id="submitButton" type="button" class="btn btn-success">Submit</button>
+               <a href="https://drive.google.com/file/d/1JBNGI_wWq9GkrgwFzHttXK1z-dce5T_R/view?usp=drive_link"> <button id="showSolutionButton" type="button" class="btn btn-primary">Show Video solution</button></a>
+               <a href="soln.html"> <button id="showSolutionButton" type="button" class="btn btn-primary">Show text solution</button></a>
+            </div>
+        </div>
+    </div>
+    <div id="timer" style="font-size: 24px;"></div>
+    <script>
+        const countdownDuration = 20;
+        let countdown = countdownDuration;
+        let timerInterval;
+
+        // Function to update the timer display
+        function updateTimer() {
+            document.getElementById("timer").innerText = `Time left: ${countdown} seconds`;
+        }
+
+        // Function to start the countdown
+        function startCountdown() {
+            updateTimer(); // Initial display
+            timerInterval = setInterval(function () {
+                countdown--;
+                if (countdown < 0) {
+                    clearInterval(timerInterval); // Stop the timer when countdown reaches 0
+                    document.getElementById("timer").innerText = "Time's up!";
+                    disableOptions(); // Disable the options after the timer ends
+                } else {
+                    updateTimer(); // Update the timer display
+                }
+            }, 1000); // Update the timer every 1 second (1000 milliseconds)
+        }
+
+        // Function to disable the radio options
+        function disableOptions() {
+            const radioOptions = document.querySelectorAll('input[type="radio"]');
+            for (let i = 0; i < radioOptions.length; i++) {
+                radioOptions[i].disabled = true;
+            }
+        }
+
+        // Function to check the selected option on submission
+        document.getElementById("submitButton").addEventListener("click", function () {
+            clearInterval(timerInterval); // Stop the timer
+            const selectedOption = document.querySelector('input[name="answer"]:checked');
+            if (selectedOption) {
+                if (selectedOption.value === "A") {
+                    alert("Correct answer!");
+                } else {
+                    alert("Incorrect answer. Please see the solution.");
+                }
+            } else {
+                alert("Please select an option.");
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
