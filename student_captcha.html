@@ -15,6 +15,9 @@
             height: 100vh;
             margin: 0;
         }
+        #paymentButton {
+            margin-top: 15px;
+        }
 
         /* Customize the size of input fields */
         .form-control-sm {
@@ -33,14 +36,19 @@
 <body>
     <form>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Enter Your Coupone Code</label>
-            <input type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label for="exampleInputEmail1" class="form-label">Enter Your Coupon Code</label>
+            <input type="email" class="form-control form-control-sm" id="couponInput" aria-describedby="emailHelp">
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Enter Your Contact Number</label>
             <input type="password" class="form-control form-control-sm" id="exampleInputPassword1">
         </div>
+        <button type="button" class="btn btn-success" id="paymentButton" data-bs-toggle="tooltip" data-bs-placement="top"
+            title="Payment amount is Rs.50.00 and the course is set by the teacher under this coupon.">
+            Proceed to Payment
+        </button>
+
         <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
@@ -54,6 +62,12 @@
         crossorigin="anonymous"></script>
         
     <script>
+        // Enable Bootstrap tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+
         function showAlert() {
             var win;
             alert("Login successful!!");
